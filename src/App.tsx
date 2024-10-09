@@ -1,7 +1,8 @@
+import { useState } from "react";
 import InputField from "./components/InputField";
 
 const App: React.FC = () => {
-
+  const [todo, setTodo] = useState<string | number>("");
 
   return (
     <>
@@ -10,11 +11,14 @@ const App: React.FC = () => {
           <h1 className="text-3xl text-white">Taskify</h1>
         </header>
         <section className="flex justify-center mt-4">
-          <InputField />
+          <InputField
+            todo={todo}
+            setTodo={setTodo}
+          />
         </section>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
