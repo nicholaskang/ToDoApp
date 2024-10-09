@@ -4,6 +4,8 @@ import InputField from "./components/InputField";
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string | number>("");
 
+  console.log(todo);
+
   return (
     <>
       <main className="bg-sky-600 h-screen">

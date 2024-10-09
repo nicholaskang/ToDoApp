@@ -3,7 +3,7 @@ interface Props {
   setTodo: React.Dispatch<React.SetStateAction<string | number>>;
 }
 
-const InputField = ({ todo, setTodo }: Props) => {
+const InputField: React.FC<Props> = ({ todo, setTodo }) => {
   return (
     <form className="flex flex-col items-start w-60">
       <label className="mb-1 text-slate-200">Add a Task:</label>
@@ -12,11 +12,11 @@ const InputField = ({ todo, setTodo }: Props) => {
         type="input"
         placeholder="Enter task name"
         value={todo}
+        onChange={(e) => setTodo(e.target.value)}
       />
       <button
         className="w-full text-center text-white rounded-md p-2 bg-sky-800 hover:bg-sky-900 active:bg-sky-950"
-        type="submit"
-        onClick={setTodo}>
+        type="submit">
         Add Task
       </button>
     </form>
