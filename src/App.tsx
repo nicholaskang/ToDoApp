@@ -1,10 +1,21 @@
 import { useState } from "react";
 import InputField from "./components/InputField";
 import ToDo from "./components/ToDo";
+import { Todo } from "./model";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
-  console.log(todo);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handleAdd = (e: React.FormEvent<EventTarget>): void => {
+    e.preventDefault();
+    if (todo) {
+      setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
+      setTodo("");
+    }
+  };
+
+  console.log(todos);
 
   return (
     <>
@@ -16,6 +27,7 @@ const App: React.FC = () => {
           <InputField
             todo={todo}
             setTodo={setTodo}
+            handleAdd={handleAdd}
           />
         </section>
         <section className="flex justify-center">
