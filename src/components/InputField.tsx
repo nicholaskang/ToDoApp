@@ -1,6 +1,6 @@
 interface Props {
-  todo: string | number;
-  setTodo: React.Dispatch<React.SetStateAction<string | number>>;
+  todo: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const InputField: React.FC<Props> = ({ todo, setTodo }) => {
