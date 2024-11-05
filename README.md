@@ -28,8 +28,7 @@ Ensure you have Node.js and npm or yarn installed.
 
 Clone the repo and install dependencies:
 
-```
-bash
+```bash
 git clone https://github.com/your-username/todo-app.git
 cd todo-app
 npm install
@@ -41,8 +40,7 @@ yarn install
 
 Start the app in development mode:
 
-```
-bash
+```bash
 npm start
 # or
 yarn start
@@ -60,15 +58,14 @@ For production-level applications, update the ESLint configuration to enable typ
 
 1. Configure `parserOptions`:
 
-```
-js
+```js
 export default tseslint.config({
-    languageOptions: {
-        parserOptions: {
-            project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-            tsconfigRootDir: import.meta.dirname,
-        },
+  languageOptions: {
+    parserOptions: {
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+      tsconfigRootDir: import.meta.dirname,
     },
+  },
 });
 ```
 
@@ -76,26 +73,25 @@ export default tseslint.config({
 
 3. Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```
-js
+```js
 // eslint.config.js
 import react from "eslint-plugin-react";
 
 export default tseslint.config({
-    settings: { react: { version: "18.3" } },
-    plugins: {
-        react,
-    },
-    rules: {
-        ...react.configs.recommended.rules,
-        ...react.configs["jsx-runtime"].rules,
-    },
+  settings: { react: { version: "18.3" } },
+  plugins: {
+    react,
+  },
+  rules: {
+    ...react.configs.recommended.rules,
+    ...react.configs["jsx-runtime"].rules,
+  },
 });
 ```
 
 ## Project Structure
 
-src
+```src
 │
 ├── components
 │ ├── TodoList.tsx # Renders list of todos
@@ -105,6 +101,7 @@ src
 │ └── Todo.ts # TypeScript interface for Todo item
 │
 └── App.tsx # Main App component
+```
 
 ## Usage
 
