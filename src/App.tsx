@@ -1,13 +1,13 @@
 import { useState } from "react";
 import InputField from "./components/InputField";
-import ToDo from "./components/ToDo";
-import { Todo } from "./model";
+import TodoList from "./components/TodoList";
+import { Todo } from "./models";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAdd = (e: React.FormEvent<EventTarget>): void => {
+  const setTodoHandler = (e: React.FormEvent) => {
     e.preventDefault();
     if (todo) {
       setTodos([...todos, { id: Date.now(), todo, isDone: false }]);
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <main className="bg-sky-600 h-full">
+      <main>
         <header className="flex justify-center p-6 z-10">
           <h1 className="text-3xl text-white">Taskify</h1>
         </header>
@@ -27,14 +27,15 @@ const App: React.FC = () => {
           <InputField
             todo={todo}
             setTodo={setTodo}
-            handleAdd={handleAdd}
+            setTodoHandler={setTodoHandler}
           />
         </section>
         <section className="flex justify-center">
-          <div className="w-4/6 max-w-5xl m-6">
-            <ToDo />
-            <ToDo />
-            <ToDo />
+          <div className="w-full sm:w-5/6 md:w-4/5 lg:w-full max-w-5xl mx-auto my-4 p-4 sm:p-6 lg:p-8">
+            <TodoList
+              todos={todos}
+              setTodos={setTodos}
+            />
           </div>
         </section>
       </main>

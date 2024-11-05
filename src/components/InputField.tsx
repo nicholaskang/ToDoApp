@@ -1,14 +1,14 @@
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
-  handleAdd: (e: React.FormEvent<EventTarget>) => void;
+  setTodoHandler: (e: React.FormEvent) => void;
 }
 
-const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
+const InputField: React.FC<Props> = ({ todo, setTodo, setTodoHandler }) => {
   return (
     <form
-      className="flex flex-col items-start w-60"
-      onSubmit={handleAdd}>
+      className="flex flex-col items-start w-[60%] max-w-lg"
+      onSubmit={setTodoHandler}>
       <label className="mb-1 text-slate-200">Add a Task:</label>
       <input
         className="w-full p-2 mb-2"
