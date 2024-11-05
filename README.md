@@ -29,7 +29,7 @@ Ensure you have Node.js and npm or yarn installed.
 Clone the repo and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/nicholaskang/todo-app.git
 cd todo-app
 npm install
 # or
