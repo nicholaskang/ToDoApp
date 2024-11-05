@@ -91,7 +91,8 @@ export default tseslint.config({
 
 ## Project Structure
 
-```src
+```
+src
 │
 ├── components
 │ ├── TodoList.tsx # Renders list of todos
