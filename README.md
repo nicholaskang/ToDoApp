@@ -1,22 +1,69 @@
-# React + TypeScript + Vite
+# Todo List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive Todo List app built with React, TypeScript, and Tailwind CSS. Users can add, edit, mark as done, and delete todos with a responsive, intuitive interface.
 
-Currently, two official plugins are available:
+## Features
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Todo**: Create tasks
+- **Edit Todo**: Modify task text
+- **Mark as Done**: Toggle task completion
+- **Delete Todo**: Remove tasks permanently
+- **Responsive Layout**: Optimized for all screen sizes
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: UI components and state management
+- **TypeScript**: Type safety
+- **Vite**: Fast development with hot module replacement (HMR)
+- **Tailwind CSS**: Responsive styling
+- **React Hooks**: `useState`, `useRef`, `useEffect` for UI logic
 
--   Configure the top-level `parserOptions` property like this:
+## Setup
 
-```js
+### Prerequisites
+
+Ensure you have Node.js and npm or yarn installed.
+
+### Installation
+
+Clone the repo and install dependencies:
+
+```
+bash
+git clone https://github.com/your-username/todo-app.git
+cd todo-app
+npm install
+# or
+yarn install
+```
+
+### Run the App
+
+Start the app in development mode:
+
+```
+bash
+npm start
+# or
+yarn start
+```
+
+Visit `http://localhost:3000` in your browser.
+
+## Using React + TypeScript + Vite
+
+This project is set up with Vite for a minimal, fast React development environment using TypeScript. Vite provides Hot Module Replacement (HMR) to improve the development experience. This setup also includes basic ESLint rules.
+
+### Expanding ESLint Configuration
+
+For production-level applications, update the ESLint configuration to enable type-aware lint rules:
+
+1. Configure `parserOptions`:
+
+```
+js
 export default tseslint.config({
     languageOptions: {
-        // other options...
         parserOptions: {
             project: ["./tsconfig.node.json", "./tsconfig.app.json"],
             tsconfigRootDir: import.meta.dirname,
@@ -25,26 +72,51 @@ export default tseslint.config({
 });
 ```
 
--   Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
--   Optionally add `...tseslint.configs.stylisticTypeChecked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Replace `tseslint.configs.recommended` with `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`. Optionally, add `...tseslint.configs.stylisticTypeChecked`.
 
-```js
+3. Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+
+```
+js
 // eslint.config.js
 import react from "eslint-plugin-react";
 
 export default tseslint.config({
-    // Set the react version
     settings: { react: { version: "18.3" } },
     plugins: {
-        // Add the react plugin
         react,
     },
     rules: {
-        // other rules...
-        // Enable its recommended rules
         ...react.configs.recommended.rules,
         ...react.configs["jsx-runtime"].rules,
     },
 });
 ```
+
+## Project Structure
+
+src
+│
+├── components
+│ ├── TodoList.tsx # Renders list of todos
+│ ├── TodoItem.tsx # Manages individual todo item
+│
+├── models
+│ └── Todo.ts # TypeScript interface for Todo item
+│
+└── App.tsx # Main App component
+
+## Usage
+
+1. **Add**: Type a task and press Enter
+2. **Edit**: Click the edit icon, modify, and press Enter
+3. **Toggle Completion**: Click the check icon
+4. **Delete**: Click the delete icon
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For questions or feedback, reach out at [nickkang257@gmail.com](mailto:nickkang257@gmail.com).
